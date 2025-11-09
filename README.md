@@ -89,13 +89,30 @@ Developers contributing to this project should ensure the following:
 
 ---
 
+## 🚀 Getting Started
+
+### Development Setup
+1. **Dashboard Application:**
+   ```bash
+   cd dashboard
+   npm install
+   cp .env.example .env.local
+   npm run dev
+   ```
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+2. **VS Code Development:**
+   - Open in Dev Container for full environment
+   - Install recommended extensions
+   - Use integrated terminal for all commands
+
 ## 🧩 Next Steps
 
 1. ✅ ~~Define folder structure for epics~~ → **Complete** (`docs/epics/` created)
-2. ✅ ~~Create Epic 1 documentation~~ → **Complete** ([Epic 1](docs/epics/epic-1-tenant-connection.md) + [GitHub Issues](../../issues))
-3. 🚀 **Begin Epic 1 Development** → Implement tenant authentication flow
-4. Extend `.devcontainer/devcontainer.json` when project-specific tooling is needed
-5. Add sample scripts or notebooks to test tenant connections and content generation
+2. ✅ ~~Create Epic 0 & Epic 1 documentation~~ → **Complete** ([Epic 0](docs/epics/epic-0-admin-dashboard.md) + [Epic 1](docs/epics/epic-1-tenant-connection.md))
+3. ✅ ~~E0-US0 Initial Setup~~ → **Complete** (Next.js dashboard running)
+4. 🚀 **Current Focus:** Epic 0 development (app shell, OIDC, widgets)
+5. **Next:** Epic 1 development (Microsoft Entra ID integration)
 
 ---
 
