@@ -1,5 +1,5 @@
-import { ConnectTenantCard } from '@/components/dashboard/connect-tenant-card';
-import { EmptyStateCard } from '@/components/dashboard/empty-state-card';
+import { ConnectTenantCard } from '../components/dashboard/connect-tenant-card';
+import { EmptyStateCard } from '../components/dashboard/empty-state-card';
 
 export default function Dashboard() {
   // For now, show empty state - this will be dynamic based on tenant connection
