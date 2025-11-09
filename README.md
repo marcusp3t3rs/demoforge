@@ -1,4 +1,34 @@
-# demo-content
+# ⚡️ DemoForge
+
+> **Modular AI Demo Environment Framework for Microsoft Tenants**  
+> Build, connect, and showcase intelligent demo content — effortlessly.
+
+---
+
+## 🧭 Project Overview
+
+**DemoForge** is a modular, tenant-ready platform for generating and managing AI-powered demo content across industries and business functions.  
+It enables teams to **forge reproducible demo environments** that connect to Microsoft tenants, layer functional and industry logic, and provision users and sample content automatically.
+
+With DemoForge, you can:
+- Connect securely to Microsoft 365 tenants  
+- Layer business functions and industries modularly  
+- Auto-provision demo users and content  
+- Monitor usage and performance  
+- Package and deploy reproducible environments  
+
+---
+
+## 🧱 Core Epics
+
+| # | Epic | Description |
+|:-:|------|--------------|
+| 1 | **Tenant Connection & Setup** | Securely connect to Microsoft tenants and manage authentication/configuration. |
+| 2 | **Function & Industry Layering** | Modularly define business functions and industry logic. |
+| 3 | **Demo User Provisioning** | Automatically create realistic demo personas and assign roles. |
+| 4 | **Content Generation** | Generate AI-driven demo data, documents, and interactions. |
+| 5 | **Dashboard & Monitoring** | Visualize system health, tenant status, and usage analytics. |
+| 6 | **Installation & Packaging** | Deploy anywhere — locally, via Codespaces, or Azure. |
 
 ## 🧭 Project Overview
 
