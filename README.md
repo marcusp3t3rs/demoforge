@@ -23,6 +23,7 @@ With DemoForge, you can:
 
 | # | Epic | Status | Issue | Description |
 |:-:|------|--------|-------|-------------|
+| 0 | **[Admin Dashboard & App Shell](docs/epics/epic-0-admin-dashboard.md)** | 🟢 In Refinement | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) | Entry point: auth, nav, connect CTA, status widgets |
 | 1 | **[Tenant Connection & Setup](docs/epics/epic-1-tenant-connection.md)** | 🟢 In Refinement | [#1](https://github.com/marcusp3t3rs/demoforge/issues/1) | Secure onboarding & tenant authentication via OAuth 2.0 / Entra ID |
 | 2 | **Function & Industry Layering** | ⚪ Planned | — | Modularly define business functions and industry logic |
 | 3 | **Demo User Provisioning** | ⚪ Planned | — | Automatically create realistic demo personas and assign roles |
