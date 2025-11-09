@@ -17,14 +17,14 @@
 ---
 
 ## User Stories
-- [ ] US-1 Tenant Admin Authentication  
-- [ ] US-2 Admin Consent  
-- [ ] US-3 Token Exchange & Storage  
-- [ ] US-4 Role & Tenant Verification  
-- [ ] US-5 Connection Status Dashboard  
-- [ ] US-6 Auto Refresh & Failure Handling  
-- [ ] US-7 Revoke / Reconnect  
-- [ ] US-8 Audit Log  
+- [ ] [#2](../../issues/2) US-1 Tenant Admin Authentication  
+- [ ] [#3](../../issues/3) US-2 Admin Consent  
+- [ ] [#4](../../issues/4) US-3 Token Exchange & Storage  
+- [ ] [#5](../../issues/5) US-4 Role & Tenant Verification  
+- [ ] [#6](../../issues/6) US-5 Connection Status Dashboard  
+- [ ] [#7](../../issues/7) US-6 Auto Refresh & Failure Handling  
+- [ ] [#8](../../issues/8) US-7 Revoke / Reconnect  
+- [ ] [#9](../../issues/9) US-8 Audit Log  
 
 ---
 
