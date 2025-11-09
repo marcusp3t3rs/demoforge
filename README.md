@@ -21,14 +21,16 @@ With DemoForge, you can:
 
 ## 🧱 Core Epics
 
-| # | Epic | Description |
-|:-:|------|--------------|
-| 1 | **Tenant Connection & Setup** | Securely connect to Microsoft tenants and manage authentication/configuration. |
-| 2 | **Function & Industry Layering** | Modularly define business functions and industry logic. |
-| 3 | **Demo User Provisioning** | Automatically create realistic demo personas and assign roles. |
-| 4 | **Content Generation** | Generate AI-driven demo data, documents, and interactions. |
-| 5 | **Dashboard & Monitoring** | Visualize system health, tenant status, and usage analytics. |
-| 6 | **Installation & Packaging** | Deploy anywhere — locally, via Codespaces, or Azure. |
+| # | Epic | Status | Issue | Description |
+|:-:|------|--------|-------|-------------|
+| 1 | **[Tenant Connection & Setup](docs/epics/epic-1-tenant-connection.md)** | 🟢 In Refinement | [#1](../../issues/1) | Secure onboarding & tenant authentication via OAuth 2.0 / Entra ID |
+| 2 | **Function & Industry Layering** | ⚪ Planned | — | Modularly define business functions and industry logic |
+| 3 | **Demo User Provisioning** | ⚪ Planned | — | Automatically create realistic demo personas and assign roles |
+| 4 | **Content Generation** | ⚪ Planned | — | Generate AI-driven demo data, documents, and interactions |
+| 5 | **Dashboard & Monitoring** | ⚪ Planned | — | Visualize system health, tenant status, and usage analytics |
+| 6 | **Installation & Packaging** | ⚪ Planned | — | Deploy anywhere — locally, via Codespaces, or Azure |
+
+📋 **[Complete Backlog](docs/backlog.md)**
 
 ## 🧭 Service Overview
 
@@ -88,10 +90,11 @@ Developers contributing to this project should ensure the following:
 
 ## 🧩 Next Steps
 
-1. Extend `.devcontainer/devcontainer.json` when custom tooling or features are needed.  
-2. Define folder structure for epics (`epic-1-tenant-setup`, `epic-2-function-layering`, etc.).  
-3. Add sample scripts or notebooks to test tenant connections and content generation.  
-4. Document setup and workflow for contributors as the codebase grows.
+1. ✅ ~~Define folder structure for epics~~ → **Complete** (`docs/epics/` created)
+2. ✅ ~~Create Epic 1 documentation~~ → **Complete** ([Epic 1](docs/epics/epic-1-tenant-connection.md) + [GitHub Issues](../../issues))
+3. 🚀 **Begin Epic 1 Development** → Implement tenant authentication flow
+4. Extend `.devcontainer/devcontainer.json` when project-specific tooling is needed
+5. Add sample scripts or notebooks to test tenant connections and content generation
 
 ---
 
@@ -109,19 +112,27 @@ Each Epic defines a clear functional area and is designed to be incrementally bu
 
 ## 🧩 Epic 1 — Tenant Connection & Setup
 
+> **Status:** 🟢 In Refinement | **Issue:** [#1](../../issues/1) | **Details:** [Epic 1 Documentation](docs/epics/epic-1-tenant-connection.md)
+
 **Goal:**  
-Enable the service to securely connect to a Microsoft tenant and establish the necessary permissions, authentication, and configuration to enable downstream operations.
+Enable secure connection of Microsoft 365 tenants to the DemoForge Dashboard with OAuth 2.0 / Entra ID authentication flow.
 
 **Key Outcomes:**
-- Connect to Microsoft 365 tenants via OAuth2 / Entra ID
-- Validate and store connection metadata securely
-- Support multi-tenant and environment-aware connections
-- Define minimal UI or CLI onboarding for tenant setup
+- Multi-tenant Entra ID app with OAuth 2.0 + PKCE flow
+- Encrypted token storage with auto-refresh capabilities  
+- Role & tenant validation for admin access
+- Connection health UI with revoke/reconnect functionality
+- Basic audit trail for authentication events
 
-**User Stories:**
-- As a user, I can connect my Microsoft tenant securely to the demo content service.  
-- As an admin, I can view and manage connected tenants.  
-- As a developer, I can retrieve tenant tokens for API calls to Microsoft Graph or Copilot services.
+**Active User Stories:** [Issues #2-#9](../../issues)
+- US-1: Tenant Admin Authentication
+- US-2: Admin Consent  
+- US-3: Token Exchange & Storage
+- US-4: Role & Tenant Verification
+- US-5: Connection Status Dashboard
+- US-6: Auto Refresh & Failure Handling
+- US-7: Revoke / Reconnect
+- US-8: Audit Log
 
 ---
 

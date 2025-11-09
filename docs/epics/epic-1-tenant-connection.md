@@ -12,7 +12,7 @@
 | **Objective** | Secure onboarding and tenant connection via OAuth 2.0 / Entra ID / Graph API |
 | **Owner** | @marcuspeters |
 | **Status** | 🟢 In Refinement |
-| **Issue** | [#12](../../issues/12) |
+| **Issue** | [#1](../../issues/1) |
 
 ---
 
