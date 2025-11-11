@@ -14,15 +14,24 @@
 | **Depends on** | — (primes Epic 1) |
 
 ## User Stories
-- [x] [#19](https://github.com/marcusp3t3rs/demoforge/issues/19) E0-US0 Initial Setup (Node.js app + basic dashboard) **✅ Complete**
-- [x] [#11](https://github.com/marcusp3t3rs/demoforge/issues/11) E0-US1 App Shell & Navigation **✅ Complete** *(RBAC guards & OIDC UX → Epic 1)*
-- [ ] [#12](https://github.com/marcusp3t3rs/demoforge/issues/12) E0-US2 Admin Sign-In *(Epic 1 integration)*
-- [ ] [#13](https://github.com/marcusp3t3rs/demoforge/issues/13) E0-US3 Connect Tenant CTA *(Epic 1 integration)*
-- [ ] [#14](https://github.com/marcusp3t3rs/demoforge/issues/14) E0-US4 Connection Status Card *(Epic 1 integration)*
-- [ ] [#15](https://github.com/marcusp3t3rs/demoforge/issues/15) E0-US5 Audit Preview *(Future iteration)*
-- [ ] [#16](https://github.com/marcusp3t3rs/demoforge/issues/16) E0-US6 Alerts & Toasts *(Future iteration)*
-- [ ] [#17](https://github.com/marcusp3t3rs/demoforge/issues/17) E0-US7 Role Badge *(Epic 1 integration)*
-- [ ] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX *(Future iteration)*
+
+### Legend
+- **🟢 Closed** - Fully implemented and complete
+- **🔄 Deferred** - Moved to another epic for better integration
+- **📋 Backlog** - Planned for future iterations within this epic
+- **🚧 In Progress** - Currently being developed
+- **⏸️ Blocked** - Waiting on dependencies or decisions
+
+### Stories
+- [x] [#19](https://github.com/marcusp3t3rs/demoforge/issues/19) E0-US0 Initial Setup (Node.js app + basic dashboard) **🟢 Closed**
+- [x] [#11](https://github.com/marcusp3t3rs/demoforge/issues/11) E0-US1 App Shell & Navigation **🟢 Closed** *(RBAC guards & OIDC UX → Epic 1)*
+- [ ] [#12](https://github.com/marcusp3t3rs/demoforge/issues/12) E0-US2 Admin Sign-In **🔄 Deferred** *(Epic 1 integration)*
+- [ ] [#13](https://github.com/marcusp3t3rs/demoforge/issues/13) E0-US3 Connect Tenant CTA **🔄 Deferred** *(Epic 1 integration)*
+- [ ] [#14](https://github.com/marcusp3t3rs/demoforge/issues/14) E0-US4 Connection Status Card **🔄 Deferred** *(Epic 1 integration)*
+- [ ] [#15](https://github.com/marcusp3t3rs/demoforge/issues/15) E0-US5 Audit Preview **📋 Backlog** *(Future iteration)*
+- [ ] [#16](https://github.com/marcusp3t3rs/demoforge/issues/16) E0-US6 Alerts & Toasts **📋 Backlog** *(Future iteration)*
+- [ ] [#17](https://github.com/marcusp3t3rs/demoforge/issues/17) E0-US7 Role Badge **🔄 Deferred** *(Epic 1 integration)*
+- [ ] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX **📋 Backlog** *(Future iteration)*
 
 ## Scope
 **In**
