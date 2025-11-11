@@ -22,7 +22,7 @@
 - [ ] [#15](https://github.com/marcusp3t3rs/demoforge/issues/15) E0-US5 Audit Preview *(Future iteration)*
 - [ ] [#16](https://github.com/marcusp3t3rs/demoforge/issues/16) E0-US6 Alerts & Toasts *(Future iteration)*
 - [ ] [#17](https://github.com/marcusp3t3rs/demoforge/issues/17) E0-US7 Role Badge *(Epic 1 integration)*
-- [ ] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX **✅ Complete**
+- [ ] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX *(Future iteration)*
 
 ## Scope
 **In**
@@ -58,8 +58,8 @@
 ### 🎨 **UI Components Implemented**
 - **Dashboard Layout:** Responsive layout with navigation structure
 - **Connect Tenant Card:** Primary CTA for tenant connection (ready for Epic 1)
-- **Empty State Card:** Clean fallback UI when no tenants connected
-- **Component System:** Reusable React components with TypeScript
+- **Basic Empty State:** Initial empty state component (E0-US8 needs full implementation)
+- **Component System:** Reusable React components with TypeScript foundation
 
 ### 🔧 **Development Experience**
 - **Type Safety:** Full TypeScript integration with Next.js
