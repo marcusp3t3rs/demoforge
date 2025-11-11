@@ -3,6 +3,8 @@ name: Sync Issue Status to Project Board
 on:
   issues:
     types: [closed, reopened]
+  schedule:
+    - cron: '0 9 * * 0'  # Weekly on Sunday at 9 AM UTC
   
 env:
   MVP_PROJECT_ID: "PVT_kwHOBcvPe84BHzw0"
@@ -134,10 +136,3 @@ jobs:
                 fi
               fi
             done
-
-# Add scheduled trigger for weekly sync
-on:
-  issues:
-    types: [closed, reopened]
-  schedule:
-    - cron: '0 9 * * 0'  # Weekly on Sunday at 9 AM UTC
