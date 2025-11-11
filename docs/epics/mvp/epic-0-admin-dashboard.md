@@ -9,7 +9,7 @@
 |---|---|
 | **Objective** | App shell (layout, routing), admin auth, dashboard widgets, Connect CTA |
 | **Owner** | @marcuspeters |
-| **Status** | 🟢 In Progress |
+| **Status** | 🟢 Closed |
 | **Issue** | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) |
 | **Depends on** | — (primes Epic 1) |
 
@@ -25,13 +25,15 @@
 ### Stories
 - [x] [#19](https://github.com/marcusp3t3rs/demoforge/issues/19) E0-US0 Initial Setup (Node.js app + basic dashboard) **🟢 Closed**
 - [x] [#11](https://github.com/marcusp3t3rs/demoforge/issues/11) E0-US1 App Shell & Navigation **🟢 Closed** *(RBAC guards & OIDC UX → Epic 1)*
-- [ ] [#12](https://github.com/marcusp3t3rs/demoforge/issues/12) E0-US2 Admin Sign-In **🔄 Deferred** *(Epic 1 integration)*
-- [ ] [#13](https://github.com/marcusp3t3rs/demoforge/issues/13) E0-US3 Connect Tenant CTA **🔄 Deferred** *(Epic 1 integration)*
-- [ ] [#14](https://github.com/marcusp3t3rs/demoforge/issues/14) E0-US4 Connection Status Card **🔄 Deferred** *(Epic 1 integration)*
-- [ ] [#15](https://github.com/marcusp3t3rs/demoforge/issues/15) E0-US5 Audit Preview **📋 Backlog** *(Future iteration)*
-- [ ] [#16](https://github.com/marcusp3t3rs/demoforge/issues/16) E0-US6 Alerts & Toasts **📋 Backlog** *(Future iteration)*
-- [ ] [#17](https://github.com/marcusp3t3rs/demoforge/issues/17) E0-US7 Role Badge **🔄 Deferred** *(Epic 1 integration)*
-- [ ] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX **📋 Backlog** *(Future iteration)*
+
+### Moved to Other Epics
+- [x] [#12](https://github.com/marcusp3t3rs/demoforge/issues/12) E0-US2 Admin Sign-In **🔄 → Epic 1** *(Microsoft integration)*
+- [x] [#13](https://github.com/marcusp3t3rs/demoforge/issues/13) E0-US3 Connect Tenant CTA **🔄 → Epic 1** *(OAuth flow integration)*
+- [x] [#14](https://github.com/marcusp3t3rs/demoforge/issues/14) E0-US4 Connection Status Card **🔄 → Epic 1** *(Tenant status integration)*
+- [x] [#17](https://github.com/marcusp3t3rs/demoforge/issues/17) E0-US7 Role Badge **� → Epic 1** *(RBAC integration)*
+- [x] [#15](https://github.com/marcusp3t3rs/demoforge/issues/15) E0-US5 Audit Preview **📋 → V1** *(Advanced UI features)*
+- [x] [#16](https://github.com/marcusp3t3rs/demoforge/issues/16) E0-US6 Alerts & Toasts **� → V1** *(Advanced UI features)*
+- [x] [#18](https://github.com/marcusp3t3rs/demoforge/issues/18) E0-US8 Empty-State UX **📋 → V1** *(Enhanced UX features)*
 
 ## Scope
 **In**
@@ -110,10 +112,19 @@ The following E0-US1 components were intentionally deferred to Epic 1 for proper
 - **OIDC Sign-in/out UX:** Login/logout interface (integrated with Microsoft Entra ID flow)
 - **Session Management:** Token handling and refresh logic (part of OAuth implementation)
 
-**Remaining Epic 0 Work:**
-- E0-US2: Admin Sign-In (authentication flow - Epic 1 integration)  
-- E0-US3: Connect Tenant CTA (enhanced UI - Epic 1 integration)
-- E0-US4: Connection Status Card (Epic 1 integration)
-- E0-US5-US8: Audit preview, alerts, role badge, enhanced empty state UX
+## 🏁 **Epic 0 - COMPLETED** ✅
+
+**Core Objective Achieved:** App shell foundation with navigation, layout, and error handling.
+
+### **✅ Successfully Delivered:**
+- **E0-US0**: Complete Next.js 16 foundation with TypeScript and Tailwind CSS
+- **E0-US1**: Full app shell with responsive navigation, error boundaries, and auth scaffolding
+
+### **🔄 Strategic Reorganization:**
+- **4 stories → Epic 1**: Authentication-dependent features moved for better Microsoft integration
+- **3 stories → V1**: Advanced UI features moved to post-MVP enhancements
+- **Clean Epic Boundaries**: Each epic now focuses on cohesive functionality
+
+**Ready for Epic 1:** Microsoft Entra ID integration with complete app shell foundation.
 
 **Related:** [docs/mvp-backlog.md](../../mvp-backlog.md)

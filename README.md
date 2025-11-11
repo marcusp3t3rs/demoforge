@@ -23,7 +23,7 @@ With DemoForge, you can:
 
 | # | Epic | Status | Issue | Description |
 |:-:|------|--------|-------|-------------|
-| 0 | **[Admin Dashboard & App Shell](docs/epics/mvp/epic-0-admin-dashboard.md)** | 🟢 In Progress | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) | Entry point: auth, nav, connect CTA, status widgets |
+| 0 | **[Admin Dashboard & App Shell](docs/epics/mvp/epic-0-admin-dashboard.md)** | 🟢 Closed | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) | Entry point: auth, nav, connect CTA, status widgets |
 | 1 | **[Tenant Connection & Setup](docs/epics/mvp/epic-1-tenant-connection.md)** | 🟢 In Refinement | [#1](https://github.com/marcusp3t3rs/demoforge/issues/1) | Secure onboarding & tenant authentication via OAuth 2.0 / Entra ID |
 | 2 | **Function & Industry Layering** | ⚪ Planned | — | Modularly define business functions and industry logic |
 | 3 | **Demo User Provisioning** | ⚪ Planned | — | Automatically create realistic demo personas and assign roles |
@@ -184,7 +184,7 @@ Developers contributing to this project should ensure the following:
 1. ✅ ~~Define folder structure for epics~~ → **Complete** (`docs/epics/mvp/` and `docs/epics/v1/` created)
 2. ✅ ~~Create Epic 0 & Epic 1 documentation~~ → **Complete** ([Epic 0](docs/epics/mvp/epic-0-admin-dashboard.md) + [Epic 1](docs/epics/mvp/epic-1-tenant-connection.md))
 3. ✅ ~~E0-US0 Initial Setup~~ → **Complete** (Next.js dashboard running)
-4. 🚀 **Current Focus:** Epic 0 development (E0-US1 ✅ complete, continuing with E0-US2-US8)
+4. 🚀 **Current Focus:** Epic 0 ✅ Complete! Ready for Epic 1 (Microsoft Entra ID integration)
 5. **Next:** Complete Epic 0, then Epic 1 (Microsoft Entra ID integration)
 6. **Next:** Joint V1 planning and go-to-market features
 
