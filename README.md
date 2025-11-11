@@ -91,20 +91,70 @@ Developers contributing to this project should ensure the following:
 
 ## 🚀 Getting Started
 
-### Development Setup
-1. **Dashboard Application:**
+### Prerequisites
+- **Git** - Version control
+- **VS Code** with **Dev Containers extension**
+- **Docker Desktop** - For containerized development environment
+- *Optional:* **GitHub CLI** (`gh`) for issue management
+
+### Quick Start (Recommended)
+
+#### Option 1: GitHub Codespaces (Easiest)
+1. **Open in Codespaces:**
+   ```bash
+   # Click "Code" → "Codespaces" → "Create codespace on main"
+   # Or use: gh codespace create --repo marcusp3t3rs/demoforge
+   ```
+
+2. **Setup Dashboard:**
    ```bash
    cd dashboard
    npm install
    cp .env.example .env.local
    npm run dev
    ```
-   Navigate to [http://localhost:3000](http://localhost:3000)
 
-2. **VS Code Development:**
-   - Open in Dev Container for full environment
-   - Install recommended extensions
-   - Use integrated terminal for all commands
+3. **Open Dashboard:** Navigate to forwarded port (usually `http://localhost:3000`)
+
+#### Option 2: Local Development Container
+1. **Clone Repository:**
+   ```bash
+   git clone https://github.com/marcusp3t3rs/demoforge.git
+   cd demoforge
+   ```
+
+2. **Open in Dev Container:**
+   - Open VS Code in the repository folder
+   - Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+   - Select: `Dev Containers: Reopen in Container`
+   - Wait for container build (first time only)
+
+3. **Setup Dashboard:**
+   ```bash
+   cd dashboard
+   npm install
+   cp .env.example .env.local
+   npm run dev
+   ```
+
+4. **Open Dashboard:** Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Development Workflow
+- **Code Quality:** `npm run type-check` (TypeScript validation)
+- **Production Build:** `npm run build` (verify deployment readiness)
+- **Clean Install:** `rm -rf node_modules package-lock.json && npm install`
+- **Container Management:** Use VS Code's Dev Container controls
+
+### Environment Configuration
+- **`.env.local`** - Your personal development settings (git-ignored)
+- **`.env.example`** - Template showing required variables
+- **`.env.production`** - Production deployment template
+
+### Verification Steps
+1. **Dashboard loads** at `http://localhost:3000` ✅
+2. **TypeScript compiles** with `npm run type-check` ✅
+3. **Production build succeeds** with `npm run build` ✅
+4. **Git workflow works** with proper dev container integration ✅
 
 ## 🔄 CI/CD Pipeline
 
