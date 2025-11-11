@@ -101,12 +101,10 @@ Developers contributing to this project should ensure the following:
 
 #### Option 1: GitHub Codespaces (Easiest)
 1. **Open in Codespaces:**
-   ```bash
-   # Click "Code" → "Codespaces" → "Create codespace on main"
-   # Or use: gh codespace create --repo marcusp3t3rs/demoforge
-   ```
+   - Click **"Code"** → **"Codespaces"** → **"Create codespace on main"**
+   - *Or use GitHub CLI:* `gh codespace create --repo marcusp3t3rs/demoforge`
 
-2. **Setup Dashboard:**
+2. **Setup Dashboard** (in Codespaces terminal):
    ```bash
    cd dashboard
    npm install
@@ -114,22 +112,29 @@ Developers contributing to this project should ensure the following:
    npm run dev
    ```
 
-3. **Open Dashboard:** Navigate to forwarded port (usually `http://localhost:3000`)
+3. **Open Dashboard:** Click on forwarded port notification or navigate to the **Ports** tab
 
-#### Option 2: Local Development Container
+> **Note:** Codespaces automatically provides the containerized environment - no additional container setup needed!
+
+#### Option 2: Local Development Container  
 1. **Clone Repository:**
    ```bash
    git clone https://github.com/marcusp3t3rs/demoforge.git
    cd demoforge
    ```
 
-2. **Open in Dev Container:**
-   - Open VS Code in the repository folder
-   - Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
-   - Select: `Dev Containers: Reopen in Container`
-   - Wait for container build (first time only)
+2. **Open in VS Code:**
+   ```bash
+   code .  # Opens VS Code in current directory
+   ```
 
-3. **Setup Dashboard:**
+3. **Container Setup** (VS Code will prompt):
+   - VS Code detects `.devcontainer/devcontainer.json`
+   - **Click "Reopen in Container"** when prompted
+   - *Or manually:* Command Palette → `Dev Containers: Reopen in Container`
+   - Wait for container build (first time takes ~2-3 minutes)
+
+4. **Setup Dashboard** (inside container terminal):
    ```bash
    cd dashboard
    npm install
@@ -137,7 +142,9 @@ Developers contributing to this project should ensure the following:
    npm run dev
    ```
 
-4. **Open Dashboard:** Navigate to [http://localhost:3000](http://localhost:3000)
+5. **Open Dashboard:** Navigate to [http://localhost:3000](http://localhost:3000)
+
+> **Key Difference:** Local development requires explicit container setup, while Codespaces handles this automatically.
 
 ### Development Workflow
 - **Code Quality:** `npm run type-check` (TypeScript validation)
