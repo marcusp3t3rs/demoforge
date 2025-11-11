@@ -2,7 +2,7 @@
 
 | Epic | Title | Goal | Status | Issue |
 |------|--------|------|--------|-------|
-| 0 | [Admin Dashboard & App Shell](epics/mvp/epic-0-admin-dashboard.md) | Entry point: auth, nav, connect CTA, status | 🟢 In Progress | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) |
+| 0 | [Admin Dashboard & App Shell](epics/mvp/epic-0-admin-dashboard.md) | Entry point: auth, nav, connect CTA, status | 🟢 Closed | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) |
 | 1 | [Tenant Connection & Setup](epics/mvp/epic-1-tenant-connection.md) | Secure onboarding & tenant authentication | 🟢 In Refinement | [#1](https://github.com/marcusp3t3rs/demoforge/issues/1) |
 | 2 | [Function & Industry Layering](epics/mvp/epic-2-function-industry-layering.md) | Shared vs. industry-specific capabilities | ⚪ Planned | — |
 | 3 | [Demo User Provisioning](epics/mvp/epic-3-demo-user-provisioning.md) | Provision demo users & permissions | ⚪ Planned | — |
