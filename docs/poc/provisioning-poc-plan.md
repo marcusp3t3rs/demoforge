@@ -1,3 +1,5 @@
+---
+
 # Provisioning Feasibility POC Plan
 
 Goal
@@ -25,6 +27,7 @@ POC Steps
 2. Acquire token (client_credentials) and run a script:
    - Obtain token:
      POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+     grant_type=client_credentials&client_id=...&client_secret=...&scope=https://graph.microsoft.com/.default
      grant_type=client_credentials&amp;client_id=...&amp;client_secret=...&amp;scope=https://graph.microsoft.com/.default
 3. Create test user:
    - POST /users with required fields.
@@ -45,5 +48,9 @@ POC Steps
 9. Produce report:
    - What succeeded, what failed, recommended production architecture, required permissions, and admin-consent UX.
 
+Sample commands & scripts
+- Include minimal Node/TS snippets in report (token acquisition, create user, upload file, create mail).
+
+---
 Sample commands &amp; scripts
 - Include minimal Node/TS snippets in report (token acquisition, create user, upload file, create mail).
