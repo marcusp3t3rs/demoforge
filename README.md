@@ -223,3 +223,22 @@ The automation is ready to deploy but requires manual token setup for security:
 - 📁 [V1 Epics](docs/epics/v1/) - Future V1 epics (planned jointly)
 
 _This repository follows a structured approach: MVP foundation first, then collaborative V1 planning._
+
+---
+
+### Feasibility POC (short-term)
+We will perform a short, timeboxed feasibility POC to validate unattended provisioning and "impersonation" of demo users. This POC will determine whether DemoForge can:
+- Create demo users programmatically and provision mailboxes and OneDrive content.
+- Programmatically create mail, files, and (if possible) Teams messages that appear with acceptable authorship or produce acceptable alternatives.
+- Run periodic background "heartbeat" activity as an unattended worker using application credentials (app-only) or identify a feasible hybrid approach.
+
+POC outcomes will determine whether unattended background refresh (the "heartbeat") is in-scope for the MVP or pushed to V1.
+
+---
+
+### MVP vs V1 (clarity)
+- MVP: Dashboard + tenant admin login + feasibility POC (provisioning mocked or limited to interactive sessions). The MVP will validate architecture and user experience; it will not require full production-ready unattended provisioning unless the POC proves it feasible within the MVP timebox.
+- V1: Production-grade unattended provisioning, consent workflows, token storage, application access policies, and auditing — scheduled after POC and backlog prioritization.
+- V2: TBD (advanced RBAC, scale, multi-tenant automation, expanded content generation)
+
+---
