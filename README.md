@@ -23,8 +23,8 @@ With DemoForge, you can:
 
 | # | Epic | Status | Issue | Description |
 |:-:|------|--------|-------|-------------|
-| 0 | **[Admin Dashboard & App Shell](docs/epics/mvp/epic-0-admin-dashboard.md)** | 🟢 Closed | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) | Entry point: auth, nav, connect CTA, status widgets |
-| 1 | **[Tenant Connection & Setup](docs/epics/mvp/epic-1-tenant-connection.md)** | 🟢 In Refinement | [#1](https://github.com/marcusp3t3rs/demoforge/issues/1) | Secure onboarding & tenant authentication via OAuth 2.0 / Entra ID |
+| 0 | **[Admin Dashboard & App Shell](docs/epics/mvp/epic-0-admin-dashboard.md)** | 🟢 Closed | [#10](https://github.com/marcusp3t3rs/demoforge/issues/10) | Entry point: auth, nav, connect CTA, [...]|
+| 1 | **[Tenant Connection & Setup](docs/epics/mvp/epic-1-tenant-connection.md)** | 🟢 In Refinement | [#1](https://github.com/marcusp3t3rs/demoforge/issues/1) | Secure onboarding & tenant authe[...]|
 | 2 | **Function & Industry Layering** | ⚪ Planned | — | Modularly define business functions and industry logic |
 | 3 | **Demo User Provisioning** | ⚪ Planned | — | Automatically create realistic demo personas and assign roles |
 | 4 | **Content Generation** | ⚪ Planned | — | Generate AI-driven demo data, documents, and interactions |
@@ -36,7 +36,7 @@ With DemoForge, you can:
 ## 🧭 Service Overview
 
 The **DemoForge Project** aims to create a modular, tenant-ready service for generating and managing AI-powered demo content across industries and business functions.  
-It provides a foundation for building repeatable, installable demo environments that connect to Microsoft tenants, layer functional and industry-specific logic, and provision demo users and sample content automatically.
+It provides a foundation for building repeatable, installable demo environments that connect to Microsoft tenants, layer functional and industry-specific logic, and provision demo users and sample[...] 
 
 Ultimately, the goal is to deliver a **self-contained, reproducible environment** for demonstrating AI and Copilot scenarios — with clear separation between:
 - **Tenant Connection & Setup**
@@ -59,9 +59,9 @@ This repository relies on the Microsoft “universal” dev container image spec
 ```
 
 That means the development environment is provided entirely by the container image.  
-It includes common tools and runtimes (Node.js, Python, .NET, PowerShell, Git, etc.), so there are **no repository-level configuration files** like `package.json` or `pyproject.toml` at this stage.
+It includes common tools and runtimes (Node.js, Python, .NET, PowerShell, Git, etc.), so there are **no repository-level configuration files** like `package.json` or `pyproject.toml` at this stage[...]  
 
-When project-specific setup is required (e.g., installing packages, adding VS Code extensions, running post-create commands, or pinning tool versions), update `.devcontainer/devcontainer.json` or add a `Dockerfile` / devcontainer features to extend the environment.
+When project-specific setup is required (e.g., installing packages, adding VS Code extensions, running post-create commands, or pinning tool versions), update `.devcontainer/devcontainer.json` or [...]  
 
 For now, the minimal single-line devcontainer configuration is **intentional** — keeping the setup lightweight while focusing on architecture and content structure.
 
@@ -105,12 +105,12 @@ Developers contributing to this project should ensure the following:
    - *Or use GitHub CLI:* `gh codespace create --repo marcusp3t3rs/demoforge`
 
 2. **Setup Dashboard** (in Codespaces terminal):
-   ```bash
-   cd dashboard
-   npm install
-   cp .env.example .env.local
-   npm run dev
-   ```
+    ```bash
+    cd dashboard
+    npm install
+    cp .env.example .env.local
+    npm run dev
+    ```
 
 3. **Open Dashboard:** Click on forwarded port notification or navigate to the **Ports** tab
 
@@ -135,12 +135,12 @@ Developers contributing to this project should ensure the following:
    - Wait for container build (first time takes ~2-3 minutes)
 
 4. **Setup Dashboard** (inside container terminal):
-   ```bash
-   cd dashboard
-   npm install
-   cp .env.example .env.local
-   npm run dev
-   ```
+    ```bash
+    cd dashboard
+    npm install
+    cp .env.example .env.local
+    npm run dev
+    ```
 
 5. **Open Dashboard:** Navigate to [http://localhost:3000](http://localhost:3000)
 
@@ -154,7 +154,7 @@ Developers contributing to this project should ensure the following:
 
 ### Environment Configuration
 - **`.env.local`** - Your personal development settings (git-ignored)
-- **`.env.example`** - Template showing required variables
+- **`.env.example`** - Template with all required variables
 - **`.env.production`** - Production deployment template
 
 ### Verification Steps
@@ -179,7 +179,7 @@ Developers contributing to this project should ensure the following:
 
 **CI/CD Documentation:** [.github/CICD.md](.github/CICD.md)
 
-## � Project Board Automation
+## 🔧 Project Board Automation
 
 DemoForge includes comprehensive project board automation to keep GitHub Issues synchronized with project boards in real-time.
 
@@ -208,21 +208,8 @@ The automation is ready to deploy but requires manual token setup for security:
 2. ✅ ~~Create Epic 0 & Epic 1 documentation~~ → **Complete** ([Epic 0](docs/epics/mvp/epic-0-admin-dashboard.md) + [Epic 1](docs/epics/mvp/epic-1-tenant-connection.md))
 3. ✅ ~~E0-US0 Initial Setup~~ → **Complete** (Next.js dashboard running)
 4. 🚀 **Current Focus:** Epic 0 ✅ Complete! Ready for Epic 1 (Microsoft Entra ID integration)
-5. **Next:** Complete Epic 0, then Epic 1 (Microsoft Entra ID integration)
-6. **Next:** Joint V1 planning and go-to-market features
-
----
-
-## 📋 Documentation Structure
-
-**MVP Planning:**
-- 📋 [MVP Backlog](docs/mvp-backlog.md) - Complete epic overview and user stories
-- � [MVP Epics](docs/epics/mvp/) - Detailed epic documentation and implementation plans
-
-**V1 Planning:**
-- 📁 [V1 Epics](docs/epics/v1/) - Future V1 epics (planned jointly)
-
-_This repository follows a structured approach: MVP foundation first, then collaborative V1 planning._
+5. Next: Complete Epic 0, then Epic 1 (Microsoft Entra ID integration)
+6. Next: Joint V1 planning and go-to-market features
 
 ---
 
@@ -240,6 +227,3 @@ POC outcomes will determine whether unattended background refresh (the "heartbea
 - MVP: Dashboard + tenant admin login + feasibility POC (provisioning mocked or limited to interactive sessions). The MVP will validate architecture and user experience; it will not require full production-ready unattended provisioning unless the POC proves it feasible within the MVP timebox.
 - V1: Production-grade unattended provisioning, consent workflows, token storage, application access policies, and auditing — scheduled after POC and backlog prioritization.
 - V2: TBD (advanced RBAC, scale, multi-tenant automation, expanded content generation)
-
----
----
