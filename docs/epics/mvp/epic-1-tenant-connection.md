@@ -21,7 +21,7 @@
 Objective
 - Timebox a focused feasibility spike to validate whether unattended provisioning and periodic "heartbeat" activity can be implemented safely and practically for demo users, mail, files, and chats.
 
-Timebox &amp; Owner
+Timebox & Owner
 - Timebox: 2–4 days (recommended 3 days)
 - Owner: @marcusp3t3rs
 
@@ -41,7 +41,7 @@ Acceptance Criteria
 - Clear determination whether unattended background refresh is feasible with app-only credentials or whether a hybrid approach is required, with documented trade-offs and example scripts/requests.
 
 Impact on backlog
-- If POC succeeds, promote E1‑US2 (Admin Consent), E1‑US3 (Token Exchange &amp; Storage), and E1‑US6 (Auto Refresh) for implementation in V1 (or MVP if you choose to include unattended refresh).
+- If POC succeeds, promote E1‑US2 (Admin Consent), E1‑US3 (Token Exchange & Storage), and E1‑US6 (Auto Refresh) for implementation in V1 (or MVP if you choose to include unattended refresh).
 - If POC identifies blockers, keep MVP focused on dashboard + login + mocked provisioning and schedule unattended provisioning for V1 with documented constraints.
 
 ---
@@ -117,35 +117,3 @@ Impact on backlog
 ---
 
 **Related:** [docs/mvp-backlog.md](../../mvp-backlog.md)
-
----
-
-### Near-term Feasibility POC: Unattended Provisioning (POC)
-
-Objective
-- Timebox a focused feasibility spike to validate whether unattended provisioning and periodic "heartbeat" activity can be implemented safely and practically for demo users, mail, files, and chats.
-
-Timebox & Owner
-- Timebox: 2–4 days (recommended 3 days)
-- Owner: @marcusp3t3rs
-
-POC Tasks
-- Register a test Azure app with application permissions (User.ReadWrite.All, Mail.ReadWrite, Files.ReadWrite.All, Teams-related permissions as needed).
-- Implement a minimal client_credentials script that:
-  - Obtains an app-only token.
-  - Creates a test user and (optionally) assigns a license to provision a mailbox.
-  - Uploads a file to the user's OneDrive.
-  - Creates a mail item in the user's mailbox (if supported).
-  - Attempts to create a Teams chat message as the test user (document results).
-- Verify authorship/attribution (From/CreatedBy) for created items.
-- Test Application Access Policies or other tenant constraints.
-- Produce a short POC report with recommendations (app-only vs delegated vs hybrid), required Graph scopes, admin consent UX, security controls, and sample scripts.
-
-Acceptance Criteria
-- Clear determination whether unattended background refresh is feasible with app-only credentials or whether a hybrid approach is required, with documented trade-offs and example scripts/requests.
-
-Impact on backlog
-- If POC succeeds, promote E1‑US2 (Admin Consent), E1‑US3 (Token Exchange & Storage), and E1‑US6 (Auto Refresh) for implementation in V1 (or MVP if you choose to include unattended refresh).
-- If POC identifies blockers, keep MVP focused on dashboard + login + mocked provisioning and schedule unattended provisioning for V1 with documented constraints.
-
----

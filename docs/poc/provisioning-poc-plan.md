@@ -1,5 +1,3 @@
----
-
 # Provisioning Feasibility POC Plan
 
 Goal
@@ -51,6 +49,4 @@ POC Steps
 Sample commands & scripts
 - Include minimal Node/TS snippets in report (token acquisition, create user, upload file, create mail).
 
----
-Sample commands &amp; scripts
-- Include minimal Node/TS snippets in report (token acquisition, create user, upload file, create mail).
+
