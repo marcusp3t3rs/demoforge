@@ -286,8 +286,10 @@ class ContentLifecycleManager {
       });
     });
 
-    summary.tenants = Array.from(summary.tenants);
-    return summary;
+    return {
+      ...summary,
+      tenants: Array.from(summary.tenants)
+    };
   }
 }
 
@@ -338,4 +340,5 @@ if (require.main === module) {
   demonstrateContentTracking().catch(console.error);
 }
 
-export { ContentLifecycleManager, ContentRecord, DemoSession };
+export { ContentLifecycleManager };
+export type { ContentRecord, DemoSession };
