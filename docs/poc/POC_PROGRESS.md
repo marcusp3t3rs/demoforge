@@ -35,7 +35,18 @@ Validate whether unattended provisioning and periodic "heartbeat" activity can b
 
 ### Day 1: November 14, 2025
 **Focus**: [Issue #35](https://github.com/marcusp3t3rs/demoforge/issues/35) - Azure App Registration & Permissions  
-*Experiments and findings will be documented here as we progress*
+
+**📋 Progress Made:**
+- ✅ Created POC directory structure in `/dashboard/scripts/poc/`
+- ✅ Implemented `01-authenticate.js` - Client credentials authentication script
+- ✅ Implemented `02-create-user.js` - User creation test script  
+- ✅ Added environment template (`.env.template`) for Azure app credentials
+- ✅ Created comprehensive README.md with setup instructions
+
+**🎯 Ready for Phase 1 Testing:**
+- Scripts are ready to test once Azure app is registered
+- All required permissions documented and implemented
+- Error handling and results logging included
 
 ### Day 2: [Date]  
 **Focus**: [Issue #36](https://github.com/marcusp3t3rs/demoforge/issues/36) - Core Provisioning Script + [Issue #37](https://github.com/marcusp3t3rs/demoforge/issues/37) - Validation  
