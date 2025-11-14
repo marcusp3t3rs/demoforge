@@ -263,7 +263,7 @@ class ContentLifecycleManager {
 
   // Integration helpers for POC scripts
   static createForPOC(): ContentLifecycleManager {
-    return new ContentLifecycleManager(path.join(process.cwd(), 'poc-content-tracking.json'));
+    return new ContentLifecycleManager(path.join(__dirname, 'poc-content-tracking.json'));
   }
 
   exportSummary(): any {
