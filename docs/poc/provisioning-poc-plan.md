@@ -1,5 +1,8 @@
 # Provisioning Feasibility POC Plan
 
+**GitHub Issues**: [#35](https://github.com/marcusp3t3rs/demoforge/issues/35), [#36](https://github.com/marcusp3t3rs/demoforge/issues/36), [#37](https://github.com/marcusp3t3rs/demoforge/issues/37), [#38](https://github.com/marcusp3t3rs/demoforge/issues/38)  
+**Progress Tracking**: [POC_PROGRESS.md](./POC_PROGRESS.md)
+
 Goal
 - Validate unattended provisioning / impersonation for: users, mails, files, (and Teams messages if possible).
 - Decide between: app-only (client credentials) worker, delegated refresh tokens, or hybrid (service accounts / bots).
@@ -46,6 +49,13 @@ POC Steps
    - What succeeded, what failed, recommended production architecture, required permissions, and admin-consent UX.
 
 Sample commands & scripts
-- Include minimal Node/TS snippets in report (token acquisition, create user, upload file, create mail).
+- Include minimal Node.js/TypeScript snippets in report (token acquisition, create user, upload file, create mail).
+- All code samples will be committed to the POC branch for testing and iteration.
+
+## 📋 Phase Mapping to GitHub Issues
+- **Steps 1-2**: [Issue #35](https://github.com/marcusp3t3rs/demoforge/issues/35) - Azure App Registration & Permissions
+- **Steps 3-7**: [Issue #36](https://github.com/marcusp3t3rs/demoforge/issues/36) - Core Provisioning Script Implementation  
+- **Step 8**: [Issue #37](https://github.com/marcusp3t3rs/demoforge/issues/37) - Validation & Security Assessment
+- **Step 9**: [Issue #38](https://github.com/marcusp3t3rs/demoforge/issues/38) - POC Report & Implementation Recommendations
 
 

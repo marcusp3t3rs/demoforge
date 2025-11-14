@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-11-14T11:16:13.573Z",
+  "phase": "Phase 3 - File Operations",
+  "issue": "https://github.com/marcusp3t3rs/demoforge/issues/37",
+  "testUserId": "882a1861-6dad-4df2-92a8-c4c7fcb29151",
+  "testUserUPN": "poclicensed1763118073715@53133n.onmicrosoft.com",
+  "tests": [
+    {
+      "name": "OneDrive Access",
+      "status": "failed",
+      "error": "Get drive failed: User's mysite not found."
+    }
+  ],
+  "uploadedFiles": []
+}

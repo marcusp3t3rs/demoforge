@@ -1,0 +1,41 @@
+{
+  "demo_1763118827870_fioadj5ez": {
+    "sessionId": "demo_1763118827870_fioadj5ez",
+    "tenantId": "0e812be8-3f9b-4e74-8461-98b684e5cf1f",
+    "startedAt": "2025-11-14T11:13:47.870Z",
+    "status": "cleaning",
+    "totalResources": 2,
+    "cleanedResources": 0,
+    "resources": [
+      {
+        "id": "user_882a1861-6dad-4df2-92a8-c4c7fcb29151_1763118827871",
+        "tenantId": "0e812be8-3f9b-4e74-8461-98b684e5cf1f",
+        "demoSessionId": "demo_1763118827870_fioadj5ez",
+        "resourceType": "user",
+        "resourceId": "882a1861-6dad-4df2-92a8-c4c7fcb29151",
+        "graphApiEndpoint": "https://graph.microsoft.com/v1.0/users/882a1861-6dad-4df2-92a8-c4c7fcb29151",
+        "displayName": "POC Licensed User 1763118073715",
+        "createdAt": "2025-11-14T11:13:47.871Z",
+        "metadata": {
+          "license": "DEVELOPERPACK_E5",
+          "createdInPhase": "2B"
+        }
+      },
+      {
+        "id": "license_DEVELOPERPACK_E5_882a1861-6dad-4df2-92a8-c4c7fcb29151_1763118827872",
+        "tenantId": "0e812be8-3f9b-4e74-8461-98b684e5cf1f",
+        "demoSessionId": "demo_1763118827870_fioadj5ez",
+        "resourceType": "license",
+        "resourceId": "DEVELOPERPACK_E5_882a1861-6dad-4df2-92a8-c4c7fcb29151",
+        "parentResourceId": "882a1861-6dad-4df2-92a8-c4c7fcb29151",
+        "graphApiEndpoint": "https://graph.microsoft.com/v1.0/users/882a1861-6dad-4df2-92a8-c4c7fcb29151/assignLicense",
+        "displayName": "E5 Developer License Assignment",
+        "createdAt": "2025-11-14T11:13:47.872Z",
+        "metadata": {
+          "skuId": "DEVELOPERPACK_E5",
+          "assignedAt": "2025-11-14T11:13:47.872Z"
+        }
+      }
+    ]
+  }
+}

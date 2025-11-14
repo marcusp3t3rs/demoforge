@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-11-14T10:17:05.226Z",
+  "phase": "Phase 2 - User Creation",
+  "issue": "https://github.com/marcusp3t3rs/demoforge/issues/36",
+  "tests": [
+    {
+      "name": "User Creation",
+      "status": "success",
+      "duration_ms": 992,
+      "details": {
+        "id": "c6df8239-17ac-4d1b-b98a-f00423137206",
+        "userPrincipalName": "poctest1763115425472@53133n.onmicrosoft.com",
+        "displayName": "POC Test User 1763115425472"
+      }
+    },
+    {
+      "name": "User Verification",
+      "status": "success",
+      "duration_ms": 743,
+      "details": {
+        "mail": null,
+        "createdBy": "Not available"
+      }
+    }
+  ],
+  "createdUserId": "c6df8239-17ac-4d1b-b98a-f00423137206",
+  "createdUserUPN": "poctest1763115425472@53133n.onmicrosoft.com"
+}

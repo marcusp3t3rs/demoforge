@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-11-14T10:13:59.150Z",
+  "tenant_id": "0e812be8-3f9b-4e74-8461-98b684e5cf1f",
+  "client_id": "334a235b-4af6-479f-a2bd-52350ccff413",
+  "authentication": {
+    "success": true,
+    "token_acquired": true,
+    "token_expires_in": 3599,
+    "granted_scopes": []
+  },
+  "permissions": [
+    {
+      "name": "User.ReadWrite.All",
+      "required": true,
+      "available": true,
+      "tested": true
+    },
+    {
+      "name": "Directory.ReadWrite.All",
+      "required": true,
+      "available": true,
+      "tested": true
+    },
+    {
+      "name": "Mail.ReadWrite",
+      "required": true,
+      "available": true,
+      "tested": true
+    },
+    {
+      "name": "Files.ReadWrite.All",
+      "required": true,
+      "available": true,
+      "tested": true
+    },
+    {
+      "name": "Chat.ReadWrite.All",
+      "required": false,
+      "available": false,
+      "tested": true,
+      "error": "HTTP 400: Requested API is not supported in application-only context"
+    }
+  ],
+  "summary": {
+    "total_permissions": 5,
+    "available_permissions": 4,
+    "missing_required": [],
+    "ready_for_poc": true
+  }
+}
