@@ -7,6 +7,13 @@
 
 import { AuthConfig } from './types';
 
+// Debug: Check environment variables at import time
+console.log('🚨 DEBUG: Environment variables at import time:');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('DEMOFORGE_CLIENT_ID present:', !!process.env.DEMOFORGE_CLIENT_ID);
+console.log('DEMOFORGE_CLIENT_SECRET present:', !!process.env.DEMOFORGE_CLIENT_SECRET);
+console.log('All DEMOFORGE_ keys:', Object.keys(process.env).filter(k => k.startsWith('DEMOFORGE_')));
+
 /**
  * Default authentication configuration
  * Based on POC validation results and Epic 1 requirements
@@ -32,11 +39,30 @@ export function getAuthConfig(overrides?: Partial<AuthConfig>): AuthConfig {
     tenantId: 'common', // Multi-tenant app uses 'common' endpoint
     clientId: process.env.DEMOFORGE_CLIENT_ID || '',
     clientSecret: process.env.DEMOFORGE_CLIENT_SECRET || '',
-    redirectUri: process.env.MICROSOFT_REDIRECT_URI || `${process.env.NEXTAUTH_URL}/auth/callback`,
+    redirectUri: process.env.DEMOFORGE_REDIRECT_URI || `${process.env.NEXTAUTH_URL}/auth/callback`,
     oneDriveProvisioning: {
       ...DEFAULT_AUTH_CONFIG.oneDriveProvisioning!,
     },
   };
+
+  // Debug: Log what we're getting from environment
+  console.log('🔍 Auth Config Debug - Environment Variables:');
+  console.log('DEMOFORGE_CLIENT_ID:', process.env.DEMOFORGE_CLIENT_ID || 'UNDEFINED');
+  console.log('DEMOFORGE_CLIENT_SECRET:', process.env.DEMOFORGE_CLIENT_SECRET || 'UNDEFINED');
+  console.log('DEMOFORGE_REDIRECT_URI:', process.env.DEMOFORGE_REDIRECT_URI || 'UNDEFINED');
+  console.log('NEXTAUTH_URL:', process.env.NEXTAUTH_URL || 'UNDEFINED');
+  console.log('NODE_ENV:', process.env.NODE_ENV || 'UNDEFINED');
+  
+  console.log('🔍 Auth Config Debug - Final Config Values:');
+  console.log('tenantId:', baseConfig.tenantId);
+  console.log('clientId:', baseConfig.clientId || 'EMPTY');
+  console.log('clientSecret:', baseConfig.clientSecret || 'EMPTY');
+  console.log('redirectUri:', baseConfig.redirectUri || 'EMPTY');
+  
+  console.log('🔍 Auth Config Debug - All process.env keys containing DEMOFORGE:');
+  Object.keys(process.env).filter(key => key.includes('DEMOFORGE')).forEach(key => {
+    console.log(`${key}:`, process.env[key] || 'UNDEFINED');
+  });
 
   // Apply system-level overrides from environment
   if (process.env.ONEDRIVE_FORCE_PROVISIONING !== undefined) {

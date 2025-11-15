@@ -18,49 +18,102 @@ import type {
   GraphError,
   AuthAuditEvent,
 } from './types';
+import { TenantDiscoveryService } from './tenant-discovery';
 import { OneDriveSetupStatus, OneDriveErrorCode } from './types';
-import { getAuthConfig, getMicrosoftEndpoints, REQUIRED_SCOPES } from './auth-config';
+
+export { OneDriveSetupStatus, OneDriveErrorCode } from './types';
+import { getMicrosoftEndpoints, REQUIRED_SCOPES } from './auth-config';
 
 export class MicrosoftAuthService {
-  private config = getAuthConfig();
-  private endpoints = getMicrosoftEndpoints(this.config.tenantId);
+  private config: any = null;
+
+  /**
+   * Load authentication configuration from server-side API
+   * Environment variables are only available server-side in Next.js
+   */
+  private async loadConfig() {
+    if (this.config) {
+      return this.config;
+    }
+
+    try {
+      const response = await fetch('/api/auth/config');
+      if (!response.ok) {
+        throw new Error(`Failed to load auth config: ${response.status}`);
+      }
+      
+      this.config = await response.json();
+      console.log('🔧 Client: Loaded auth config from API');
+      return this.config;
+      
+    } catch (error) {
+      console.error('🚨 Client: Failed to load auth config:', error);
+      throw new Error('Failed to load authentication configuration');
+    }
+  }
 
   /**
    * Initiate Microsoft OAuth 2.0 authorization flow
    * Implements E1-US1 acceptance criteria: "Redirect to Microsoft login with PKCE/state protection"
    */
-  async initiateAuthFlow(options?: { 
-    forceOneDriveProvisioning?: boolean;
-    customScopes?: string[];
-  }): Promise<{ authUrl: string; state: string; codeVerifier: string }> {
+  async initiateAuthFlow(options?: ProvisioningOptions & {
+    tenantId?: string;
+    loginHint?: string;
+    domainHint?: string;
+  }): Promise<string> {
+    const config = await this.loadConfig();
+        const shouldForceOneDrive = options?.forceOneDriveProvisioning ?? 
+                                  config.oneDriveProvisioning.forceProvisioning;
+    
+    // Use provided tenant ID or fall back to config (usually 'common')
+    const tenantId = options?.tenantId || config.tenantId;
+    
+    console.log(`🚀 Starting authentication flow for tenant: ${tenantId}`);
+    console.log(`⚡ OneDrive force provisioning: ${shouldForceOneDrive}`);
+    if (options?.loginHint) {
+      console.log(`👤 Login hint: ${options.loginHint}`);
+    }
+    
+    // Generate PKCE parameters
+    const codeVerifier = this.generateCodeVerifier();
+    const codeChallenge = await this.generateCodeChallenge(codeVerifier);
     const state = crypto.randomUUID();
-    const codeVerifier = crypto.randomUUID() + crypto.randomUUID();
     
-    // Merge default scopes with any custom ones
-    const scopes = [...REQUIRED_SCOPES, ...(options?.customScopes || [])];
+    // Store PKCE parameters for callback
+    sessionStorage.setItem('code_verifier', codeVerifier);
+    sessionStorage.setItem('auth_state', state);
     
-    // Store OneDrive provisioning preference in state for callback
-    const stateData = {
-      state,
-      forceOneDriveProvisioning: options?.forceOneDriveProvisioning ?? this.config.oneDriveProvisioning.forceProvisioning,
-    };
-
-    const params = new URLSearchParams({
-      client_id: this.config.clientId,
+    // Store OneDrive options for callback
+    if (options) {
+      sessionStorage.setItem('onedrive_options', JSON.stringify(options));
+    }
+    
+    // Build authorization URL with dynamic tenant
+    const authParams = new URLSearchParams({
+      client_id: config.clientId,
       response_type: 'code',
-      redirect_uri: this.config.redirectUri,
-      scope: scopes.join(' '),
-      state: JSON.stringify(stateData),
-      code_challenge: codeVerifier, // Simplified PKCE for POC
-      code_challenge_method: 'plain',
-      prompt: 'consent', // Ensure admin consent is requested
+      redirect_uri: config.redirectUri,
+      response_mode: 'query',
+      scope: 'openid profile email User.Read Files.ReadWrite.All offline_access',
+      state,
+      code_challenge: codeChallenge,
+      code_challenge_method: 'S256',
     });
-
-    const authUrl = `${this.endpoints.authorization}?${params.toString()}`;
     
-    console.log(`🚀 Initiating auth flow with OneDrive force: ${stateData.forceOneDriveProvisioning}`);
+    // Add login hint for better UX and tenant resolution
+    if (options?.loginHint) {
+      authParams.append('login_hint', options.loginHint);
+    }
     
-    return { authUrl, state, codeVerifier };
+    // Add domain hint for custom domains
+    if (options?.domainHint) {
+      authParams.append('domain_hint', options.domainHint);
+    }
+    
+    const authUrl = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/authorize?${authParams.toString()}`;
+    
+    console.log(`📍 Redirecting to: ${authUrl}`);
+    return authUrl;
   }
 
   /**
@@ -74,11 +127,12 @@ export class MicrosoftAuthService {
     options?: ProvisioningOptions
   ): Promise<AuthResult> {
     try {
-      // Parse state to get OneDrive provisioning preferences
-      const stateData = JSON.parse(state);
+      const config = await this.loadConfig();
+      
+      // Get OneDrive provisioning preferences from options or config
+      // Note: state is just a CSRF protection UUID, not JSON data
       const shouldForceOneDrive = options?.forceOneDriveProvisioning ?? 
-                                  stateData.forceOneDriveProvisioning ?? 
-                                  this.config.oneDriveProvisioning.forceProvisioning;
+                                  config.oneDriveProvisioning.forceProvisioning;
 
       console.log(`🔄 Processing callback with OneDrive force: ${shouldForceOneDrive}`);
 
@@ -102,8 +156,8 @@ export class MicrosoftAuthService {
           user.user!.id, 
           tokens.tokens!.accessToken,
           {
-            maxWaitTime: options?.maxOneDriveWait ?? this.config.oneDriveProvisioning.maxWaitTime,
-            retryAttempts: this.config.oneDriveProvisioning.retryAttempts,
+            maxWaitTime: options?.maxOneDriveWait ?? config.oneDriveProvisioning.maxWaitTime,
+            retryAttempts: config.oneDriveProvisioning.retryAttempts,
           }
         );
       }
@@ -147,22 +201,30 @@ export class MicrosoftAuthService {
    */
   private async exchangeCodeForTokens(code: string, codeVerifier: string): Promise<AuthResult> {
     try {
-      const response = await fetch(this.endpoints.token, {
+      const config = await this.loadConfig();
+      
+      // Build token request parameters
+      const tokenParams = new URLSearchParams({
+        client_id: config.clientId,
+        client_secret: config.clientSecret,
+        scope: 'openid profile email User.Read Files.ReadWrite.All offline_access',
+        code: code,
+        redirect_uri: config.redirectUri,
+        grant_type: 'authorization_code',
+        code_verifier: codeVerifier,
+      });
+      
+      // Extract tenant ID from the authorization code response or use common
+      // For multi-tenant apps, we often need to use the tenant from the auth response
+      const tenantForToken = config.tenantId === 'common' ? 'common' : config.tenantId;
+      
+      const response = await fetch(`https://login.microsoftonline.com/${tenantForToken}/oauth2/v2.0/token`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({
-          client_id: this.config.clientId,
-          client_secret: this.config.clientSecret,
-          code,
-          redirect_uri: this.config.redirectUri,
-          grant_type: 'authorization_code',
-          code_verifier: codeVerifier,
-        }),
-      });
-
-      if (!response.ok) {
+        body: tokenParams.toString(),
+      });      if (!response.ok) {
         const errorData = await response.json() as GraphError;
         console.error('🚨 Token exchange failed:', errorData);
         return {
@@ -412,7 +474,32 @@ export class MicrosoftAuthService {
   }
 
   /**
-   * Create authentication audit event
+   * Generate code verifier for PKCE
+   */
+  private generateCodeVerifier(): string {
+    const array = new Uint8Array(32);
+    crypto.getRandomValues(array);
+    return btoa(String.fromCharCode.apply(null, Array.from(array)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=/g, '');
+  }
+
+  /**
+   * Generate code challenge for PKCE
+   */
+  private async generateCodeChallenge(verifier: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(verifier);
+    const digest = await crypto.subtle.digest('SHA-256', data);
+    return btoa(String.fromCharCode.apply(null, Array.from(new Uint8Array(digest))))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=/g, '');
+  }
+
+  /**
+   * Create authentication audit entry for compliance tracking
    * Supports E1-US1 acceptance criteria: "Session created with audit entry"
    */
   private async createAuthAuditEvent(event: Omit<AuthAuditEvent, 'timestamp'>): Promise<void> {

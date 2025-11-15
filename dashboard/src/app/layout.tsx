@@ -4,6 +4,7 @@ import "./globals.css";
 import { Sidebar } from "../components/layout/sidebar";
 import { Header } from "../components/layout/header";
 import { AuthProvider } from "../lib/auth";
+import { NextAuthProvider } from "../components/auth/NextAuthProvider";
 import ErrorBoundary from "../components/error-boundary";
 
 const geistSans = Geist({
@@ -32,8 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ErrorBoundary>
-          <AuthProvider>
-            <div className="min-h-screen bg-gray-50">
+          <NextAuthProvider>
+            <AuthProvider>
+              <div className="min-h-screen bg-gray-50">
               <Sidebar />
               <div className="md:pl-64">
                 <Header />
@@ -43,8 +45,9 @@ export default function RootLayout({
                   </div>
                 </main>
               </div>
-            </div>
-          </AuthProvider>
+              </div>
+            </AuthProvider>
+          </NextAuthProvider>
         </ErrorBoundary>
       </body>
     </html>

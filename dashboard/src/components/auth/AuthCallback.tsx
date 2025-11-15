@@ -82,21 +82,32 @@ export function AuthCallback() {
         return;
       }
 
-      // Parse state and options
-      const stateData = JSON.parse(state);
+      // Debug: Log what we received
+      console.log('🔍 Auth callback debug:');
+      console.log('- code:', code ? 'present' : 'missing');
+      console.log('- state param:', state);
+      console.log('- stored state:', storedState);
+      console.log('- code verifier:', codeVerifier ? 'present' : 'missing');
+
+      // Parse OneDrive options from session storage
       const oneDriveOptions: ProvisioningOptions = oneDriveOptionsStr 
         ? JSON.parse(oneDriveOptionsStr) 
         : {};
 
-      // Validate state matches
-      if (stateData.state !== storedState) {
+      // Validate state matches (state is a simple UUID string, not JSON)
+      if (state !== storedState) {
+        console.error('🚨 State mismatch:');
+        console.error('- Received state:', state);
+        console.error('- Stored state:', storedState);
         setState({
           status: 'error',
           message: 'Security validation failed',
-          details: 'Authentication state mismatch',
+          details: 'Authentication state mismatch - possible CSRF attack',
         });
         return;
       }
+
+      console.log('✅ State validation passed');
 
       console.log('🔄 Processing auth callback with OneDrive options:', oneDriveOptions);
 
@@ -195,6 +206,7 @@ export function AuthCallback() {
 
     } catch (error) {
       console.error('🚨 Auth callback error:', error);
+      console.error('🚨 Error stack:', error instanceof Error ? error.stack : 'No stack trace');
       setState({
         status: 'error',
         message: 'Authentication processing failed',
