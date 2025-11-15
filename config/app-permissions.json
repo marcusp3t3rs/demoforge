@@ -1,0 +1,125 @@
+{
+  "description": "Microsoft Graph API permissions for DemoForge multi-tenant application",
+  "version": "1.0.0",
+  "epic1Requirements": {
+    "e1-us1": "Tenant Admin Authentication",
+    "e1-us2": "Admin Consent Management",
+    "e1-us3": "User Management & OneDrive Provisioning",
+    "e1-us4": "Audit and Compliance"
+  },
+  "requiredResourceAccess": [
+    {
+      "resourceAppId": "00000003-0000-0000-c000-000000000000",
+      "resourceAccess": [
+        {
+          "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+          "type": "Scope"
+        },
+        {
+          "id": "37f7f235-527c-4136-accd-4a02d197296e",
+          "type": "Scope"
+        },
+        {
+          "id": "14dad69e-099b-42c9-810b-d002981feec1",
+          "type": "Scope"
+        },
+        {
+          "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+          "type": "Scope"
+        },
+        {
+          "id": "89fe6a52-be36-487e-b7d8-d061c450a026",
+          "type": "Scope"
+        },
+        {
+          "id": "741f803b-c850-494e-b5df-cde7c675a1ca",
+          "type": "Role"
+        },
+        {
+          "id": "19dbc75e-c6dc-45ba-9e88-35ab3e3b912f",
+          "type": "Role"
+        },
+        {
+          "id": "9a5d68dd-52b0-4cc2-bd40-abcf44ac3a30",
+          "type": "Role"
+        },
+        {
+          "id": "1bfefb4e-e0b5-418b-a88f-73c46d2cc8e9",
+          "type": "Role"
+        }
+      ]
+    }
+  ],
+  "permissions": {
+    "delegated": [
+      {
+        "permission": "User.Read",
+        "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+        "purpose": "E1-US1: Read basic user profile information",
+        "required": true
+      },
+      {
+        "permission": "openid",
+        "id": "37f7f235-527c-4136-accd-4a02d197296e",
+        "purpose": "E1-US1: OpenID Connect authentication",
+        "required": true
+      },
+      {
+        "permission": "profile",
+        "id": "14dad69e-099b-42c9-810b-d002981feec1",
+        "purpose": "E1-US1: Access user profile information",
+        "required": true
+      },
+      {
+        "permission": "offline_access",
+        "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+        "purpose": "E1-US1: Refresh token support for persistent sessions",
+        "required": true
+      },
+      {
+        "permission": "Files.ReadWrite.All",
+        "id": "89fe6a52-be36-487e-b7d8-d061c450a026",
+        "purpose": "E1-US1: OneDrive provisioning and access",
+        "required": true
+      }
+    ],
+    "application": [
+      {
+        "permission": "User.Read.All",
+        "id": "741f803b-c850-494e-b5df-cde7c675a1ca",
+        "purpose": "E1-US3: Read all users in tenant for management",
+        "required": true
+      },
+      {
+        "permission": "Directory.Read.All",
+        "id": "19dbc75e-c6dc-45ba-9e88-35ab3e3b912f",
+        "purpose": "E1-US1: Read tenant directory information",
+        "required": true
+      },
+      {
+        "permission": "User.ReadWrite.All",
+        "id": "9a5d68dd-52b0-4cc2-bd40-abcf44ac3a30",
+        "purpose": "E1-US3: Create and manage users",
+        "required": true
+      },
+      {
+        "permission": "Directory.ReadWrite.All",
+        "id": "1bfefb4e-e0b5-418b-a88f-73c46d2cc8e9",
+        "purpose": "E1-US2: Admin consent and directory management",
+        "required": true
+      }
+    ]
+  },
+  "redirectUris": {
+    "development": [
+      "http://localhost:3000/auth/callback",
+      "http://localhost:3001/auth/callback"
+    ],
+    "staging": [
+      "https://staging.demoforge.com/auth/callback"
+    ],
+    "production": [
+      "https://app.demoforge.com/auth/callback"
+    ]
+  }
+}

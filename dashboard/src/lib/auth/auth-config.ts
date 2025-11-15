@@ -29,10 +29,10 @@ const DEFAULT_AUTH_CONFIG: Partial<AuthConfig> = {
 export function getAuthConfig(overrides?: Partial<AuthConfig>): AuthConfig {
   // Load from environment variables (required)
   const baseConfig: AuthConfig = {
-    tenantId: process.env.AZURE_TENANT_ID || '',
-    clientId: process.env.AZURE_CLIENT_ID || '',
-    clientSecret: process.env.AZURE_CLIENT_SECRET || '',
-    redirectUri: process.env.AZURE_REDIRECT_URI || `${process.env.NEXTAUTH_URL}/api/auth/callback/azure-ad`,
+    tenantId: 'common', // Multi-tenant app uses 'common' endpoint
+    clientId: process.env.DEMOFORGE_CLIENT_ID || '',
+    clientSecret: process.env.DEMOFORGE_CLIENT_SECRET || '',
+    redirectUri: process.env.MICROSOFT_REDIRECT_URI || `${process.env.NEXTAUTH_URL}/auth/callback`,
     oneDriveProvisioning: {
       ...DEFAULT_AUTH_CONFIG.oneDriveProvisioning!,
     },
@@ -78,8 +78,8 @@ function validateAuthConfig(config: AuthConfig): void {
   const requiredFields = ['tenantId', 'clientId', 'clientSecret', 'redirectUri'] as const;
   
   for (const field of requiredFields) {
-    if (!config[field]) {
-      throw new Error(`Missing required authentication configuration: ${field}`);
+    if (!config[field] || config[field].trim() === '') {
+      throw new Error(`Missing required authentication configuration: ${field}. Check DEMOFORGE_CLIENT_ID and DEMOFORGE_CLIENT_SECRET in environment.`);
     }
   }
 

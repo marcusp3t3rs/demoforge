@@ -118,7 +118,7 @@ export function SignInButton({
         <div className="space-y-3">
           <Button
             onClick={() => setShowOptions(!showOptions)}
-            variant="ghost"
+            variant="outline"
             size="sm"
             className="w-full text-muted-foreground"
           >
