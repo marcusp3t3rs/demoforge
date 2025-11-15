@@ -75,9 +75,9 @@
 - **⏸️ Blocked** - Waiting on dependencies or decisions
 
 ### Sprint 1: Core Authentication Framework (HIGH PRIORITY)
-- [ ] [#2](https://github.com/marcusp3t3rs/demoforge/issues/2) E1-US1 Tenant Admin Authentication **🚧 Sprint 1** *(POC validated: Client credentials 100% success)*
+- [x] [#2](https://github.com/marcusp3t3rs/demoforge/issues/2) E1-US1 Tenant Admin Authentication **🟢 COMPLETE** *(NextAuth.js integration: Microsoft Entra ID provider, session management, tenant ID capture)*
 - [ ] [#3](https://github.com/marcusp3t3rs/demoforge/issues/3) E1-US2 Admin Consent **🚧 Sprint 1** *(POC validated: Required for app permissions)*
-- [ ] [#4](https://github.com/marcusp3t3rs/demoforge/issues/4) E1-US3 Token Exchange & Storage **🚧 Sprint 1** *(POC validated: 3599s token lifetime)*
+- [x] [#4](https://github.com/marcusp3t3rs/demoforge/issues/4) E1-US3 Token Exchange & Storage **🟢 COMPLETE** *(NextAuth.js JWT/session callbacks: access token persistence, tenant info)*
 
 ### Sprint 2: Status & Management (MEDIUM PRIORITY)
 - [ ] [#6](https://github.com/marcusp3t3rs/demoforge/issues/6) E1-US5 Connection Status Dashboard **📋 Sprint 2** *(Show license availability, service status)*
